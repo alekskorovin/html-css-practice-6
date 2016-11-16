@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <link rel="stylesheet" type="text/css" href="javascripts/highlight/styles/default.css" media="screen">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Htmlcss by alekskorovin</title>
+</head>
+
+<body>
+<header>
+    <div class="inner">
+        <h1>Шрифты, их подключение. Работа с SVG. Меню. JavaScript. Динамические данные. Системы контроля версий.</h1>
+        <a href="https://github.com/alekskorovin/html-css-practice-6/" class="button">
+            <small>открыть на</small>
+            GitHub</a>
+    </div>
+</header>
+
+<div id="content-wrapper">
+    <div class="inner clearfix">
+        <p id="main-content">
+            <h2>
+                <a id="fonts" class="anchor" href="#fonts" aria-hidden="true"><span aria-hidden="true"
+                                                                                          class="octicon octicon-link"></span>Шрифты, их подключение.</a>
+            </h2>
+            <h3>До эпохи веб-шрифтов</h3>
+            <p>
+                Использовали все доступные технологии:
+            </p>
+            <ul>
+                <li>Просто статические изображения. Да-да нестандартные заголовки просто резались картинками.</li>
+                <li>Flash &mdash; в нем можно было использовать любой шрифт, он импортировался прямо в <b>swf</b>-файл либо с помощью технологии <a href="https://en.wikipedia.org/wiki/Scalable_Inman_Flash_Replacement">sifr</a> (Scalable Inman Flash Replacement)</li>
+                <li>Серверные скрипты для генерации изображений используя загруженный на сервер шрифт.</li>
+                <li>JavaScript который "рисовал" текст указанным шрифтом с помощью технологий canvas либо VML &mdash; <a href="https://github.com/sorccu/cufon/wiki/About">cufon</a>. Перед этим шрифт конвертировался.</li>
+            </ul>
+            <h3>Форматы веб-шрифтов</h3>
+            <p>Существует несколько форматов шрифтов которые поддерживаются браузерами.</p>
+            <ul>
+                <li><b>TTF/OTF</b> &mdash; (TrueType font) наиболее известный формат шрифтов, который работает и для Mac OS и для Windows. В IE9 работает только если в файле указан флажок "устанавливаемый" (installable)</li>
+                <li><b>WOFF</b> &mdash; (Web Open Font Format) более сжатый формат, представлен в 2009-м году, самый поддерживаемый формат в браузерах.</li>
+                <li><b>WOFF2</b> &mdash; новое поколение WOFF 2.0, ещё более сжатый (на 30% больше чем WOFF 1.0), поддерживается: в Chrome, Firefox (отключен по умолчанию), Opera.</li>
+                <li><b>SVG</b> &mdash; именно шрифт а не изображение! Не поддерживается в IE/Edge, Firefox.</li>
+                <li><b>EOT</b> &mdash; (Embedded OpenType) формат Microsoft и соответственно поддерживается исключительно в браузерах этой компании: IE/Edge.</li>
+            </ul>
+            <figure>
+                <img src="images/font-formats-support.png" alt="Форматы шрифтов поддерживаемых браузерами"/>
+                <figcaption><a href="http://transfonter.org/formats">http://transfonter.org/formats</a></figcaption>
+            </figure>
+            <h3>Использование шрифтов</h3>
+            <h3>Нестандартные шрифты</h3>
+            <h3>Иконочные шрифты</h3>
+
+            <h4>Собственный иконочный шрифт</h4>
+            <div class="task">
+                <h3>Задание</h3>
+                <ol>
+                    <li></li>
+                </ol>
+            </div>
+            <h2>
+                <a id="svg" class="anchor" href="#svg" aria-hidden="true"><span aria-hidden="true"
+                                                                                          class="octicon octicon-link"></span>Работа с SVG.</a>
+            </h2>
+            <h3>
+                Редактирование SVG.
+            </h3>
+            <h3>
+                Создание SVG спрайта.
+            </h3>
+            <h3>
+                Перекрашивание SVG.
+            </h3>
+            <h2>
+                <a id="menu" class="anchor" href="#menu" aria-hidden="true"><span aria-hidden="true"
+                                                                                          class="octicon octicon-link"></span>Меню.</a>
+            </h2>
+            <h3>
+                Выпадающие меню.
+            </h3>
+            <div class="task">
+                <h3>Задание</h3>
+                <ol>
+                    <li></li>
+                </ol>
+            </div>
+            <h3>
+                Выезжающее меню.
+            </h3>
+            <div class="task">
+                <h3>Задание</h3>
+                <ol>
+                    <li></li>
+                </ol>
+            </div>
+            <h2>
+                <a id="js" class="anchor" href="#js" aria-hidden="true"><span aria-hidden="true"
+                                                                                class="octicon octicon-link"></span>JavaScript.</a>
+            </h2>
+            <h3>Объекты и функции</h3>
+
+            <h3>
+                Обзор библиотек и фреймворков
+            </h3>
+            <h4>jQuery</h4>
+            <h4>underscore/lo-dash</h4>
+            <h4>Понятие MVVM</h4>
+            <h4>AngularJS 1.*</h4>
+            <h4>React</h4>
+            <h4>VueJS</h4>
+
+            <h3>API для работы с классами</h3>
+            <h3>Компонент accordion</h3>
+            <h4>JavaScript версия</h4>
+
+            <h4>jQuery версия</h4>
+            <div class="task">
+                <h3>Задание</h3>
+                <ol>
+                    <li></li>
+                </ol>
+            </div>
+            <h3>Компонент popup</h3>
+            <h4>JavaScript версия</h4>
+            <h4>jQuery версия</h4>
+            <div class="task">
+                <h3>Задание</h3>
+                <ol>
+                    <li></li>
+                </ol>
+            </div>
+            <h3>API для хранения данных в браузере</h3>
+            <h4>Cookie</h4>
+            <h4>LocalStorage</h4>
+            <h4>SessionStorage</h4>
+            <h5>Копонент выбора темы</h5>
+            <div class="task">
+                <h3>Задание</h3>
+                <ol>
+                    <li></li>
+                </ol>
+            </div>
+
+            <h2>
+                <a id="dynamic-data" class="anchor" href="#dynamic-data" aria-hidden="true"><span aria-hidden="true"
+                                                                                class="octicon octicon-link"></span>Динамические данные.</a>
+            </h2>
+            <h3>Базы данных</h3>
+            <h4>Firebase</h4>
+            <h3>Работа с JSON</h3>
+            <div class="task">
+                <h3>Задание</h3>
+                <ol>
+                    <li></li>
+                </ol>
+            </div>
+
+            <h2>
+                <a id="cvs" class="anchor" href="#cvs" aria-hidden="true"><span aria-hidden="true"
+                                                                                                  class="octicon octicon-link"></span>Системы контроля версий.</a>
+            </h2>
+            <h3>Сервисы GitHub, Bitbucket</h3>
+            <div class="task">
+                <h3>Задание</h3>
+                <ol>
+                    <li></li>
+                </ol>
+            </div>
+            <h3>Репозиторий</h3>
+            <div class="task">
+                <h3>Задание</h3>
+                <ol>
+                    <li></li>
+                </ol>
+            </div>
+            <h3>Разница между FTP и системами контроля версий</h3>
+
+
+            <div class="task">
+                <h3>Домашнее задание</h3>
+                <ol>
+                    <li></li>
+                </ol>
+            </div>
+
+        </section>
+
+        <aside id="sidebar">
+            <a href="https://github.com/alekskorovin/html-css-practice-6/archive/gh-pages.zip" class="button">
+                <small>Download</small>
+                .zip file
+            </a>
+
+        </aside>
+
+    </div>
+</div>
+
+<script src="javascripts/highlight/highlight.pack.js"></script>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="javascripts/main.js"></script>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+<script src="javascripts/jquery.js"></script>
+<script src="javascripts/jquery.scrollNav.min.js"></script>
+<script>
+    $('#content-wrapper').scrollNav({
+        sections: 'h2, h3, h4',
+        subSections: true,
+        sectionElem: 'div',
+        showHeadline: true,
+        headlineText: 'Перейти к'
+    });
+</script>
+</body>
+</html>
