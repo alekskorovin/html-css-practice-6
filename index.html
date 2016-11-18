@@ -48,18 +48,95 @@
             <h3>Форматы веб-шрифтов</h3>
             <p>Существует несколько форматов шрифтов которые поддерживаются браузерами.</p>
             <ul>
-                <li><b>TTF/OTF</b> &mdash; (TrueType font) наиболее известный формат шрифтов, который работает и для Mac OS и для Windows. В IE9 работает только если в файле указан флажок "устанавливаемый" (installable)</li>
-                <li><b>WOFF</b> &mdash; (Web Open Font Format) более сжатый формат, представлен в 2009-м году, самый поддерживаемый формат в браузерах.</li>
+                <li><b>TTF/OTF</b> &mdash; (TrueType font) наиболее известный формат шрифтов, который работает и для Mac OS и для Windows. В IE9 работает только если в файле указан флажок "устанавливаемый" (installable).</li>
+                <li><b>WOFF</b> &mdash; (Web Open Font Format) более сжатый формат, представлен в 2009-м году, самый поддерживаемый формат в браузерах. Для Firefox, Internet Explorer >=9 и декстопных браузеров на webkit(Chrome, Safari, Opera).</li>
                 <li><b>WOFF2</b> &mdash; новое поколение WOFF 2.0, ещё более сжатый (на 30% больше чем WOFF 1.0), поддерживается: в Chrome, Firefox (отключен по умолчанию), Opera.</li>
-                <li><b>SVG</b> &mdash; именно шрифт а не изображение! Не поддерживается в IE/Edge, Firefox.</li>
-                <li><b>EOT</b> &mdash; (Embedded OpenType) формат Microsoft и соответственно поддерживается исключительно в браузерах этой компании: IE/Edge.</li>
+                <li><b>SVG</b> &mdash; именно шрифт а не изображение! Не поддерживается в IE/Edge, Firefox, поддерживается всеми браузерами на webkit, включая мобильные.</li>
+                <li><b>EOT</b> &mdash; (Embedded OpenType) формат Microsoft и соответственно поддерживается исключительно в браузерах этой компании: IE/Edge. Для Internet Explorer <= 8.</li>
             </ul>
             <figure>
                 <img src="images/font-formats-support.png" alt="Форматы шрифтов поддерживаемых браузерами"/>
                 <figcaption><a href="http://transfonter.org/formats">http://transfonter.org/formats</a></figcaption>
             </figure>
-            <h3>Использование шрифтов</h3>
-            <h3>Нестандартные шрифты</h3>
+            <h3>Использование веб шрифтов</h3>
+            <p>
+                Для использования веб-шрифта необходимы:
+            </p>
+            <ul>
+                <li>Сам шрифт</li>
+                <li>Обновить CSS для подключения шрифта с помощью правила @font-face</li>
+                <li>Обновить CSS для использования указанного шрифта</li>
+            </ul>
+            <p>
+                Для использования веб шрифта необходим сам файл шрифта, либо набор файлов в разных форматах. Если шрифт представлен одним файлом, его необходимо преобразовать в другие. Существуют сервисы которые конвертируют шрифт в другие форматы.
+            </p>
+            <p>
+                Файл шрифта должен предоставлять дизайнер, либо его можно скачать используя сервис <a href="https://fonts.google.com/">Google Fonts</a>. Как правило файл шрифта предоставляется в формате <b>ttf</b>.
+            </p>
+            <p>
+                Преобразовать шрифт в другие форматы поможет сервис <a href="https://www.fontsquirrel.com/">Font Squirrel</a>.
+            </p>
+            <div class="task">
+                <h3>Задание</h3>
+                <ol>
+                    <li>Заказчик решил что вместо подключения сервиса Google Fonts необходимо использовать локальные файлы шрифтов.</li>
+                    <li>Зайти на страницу <a href="https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans">https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans</a></li>
+                    <li>
+                        Нажать на кнопку <b>Select this font</b>
+                        <br/>
+                        <img src="images/google-font-download.png" alt="Select this font"/>
+                    </li>
+                    <li>
+                        Кликнуть на панель <b>1. Family Selected</b> чтобы открыть её:
+                        <br/>
+                        <img src="images/google-font-family-selected.png" alt="Открыть панель 1. Family Selected"/>
+                    </li>
+                    <li>
+                        Нажать на иконку <b>скачать</b>:
+                        <br/>
+                        <img src="images/google-font-family-selected-download.png" alt="Нажать на иконку скачать"/>
+                    </li>
+                    <li>
+                        Скачанный архив <b>Open_Sans.zip</b> разархивировать и открыть папку с шрифтами:
+                        <br/>
+                        <img src="images/google-font-family-ttf-files.png" alt="Шрифты Open Sans в формате ttf"/>
+                        <br/>
+                        Имея ttf файл шрифта, мы можем сконвертировать его в другие форматы.
+                    </li>
+                    <li>
+                        Открыть генератор шрифтов сервиса Font Squirrel &mdash; <a href="https://www.fontsquirrel.com/tools/webfont-generator">https://www.fontsquirrel.com/tools/webfont-generator</a>
+                        <br/>
+                        <img src="images/font-squirrel-webfont-generator.png" alt="Font Squirrel Font Face Generator"/>
+                    </li>
+                    <li>
+                        Нажать кнопку <b>Upload Fonts</b>:
+                        <br/>
+                        <img src="images/font-squirrel-webfont-generator-upload-fonts.png" alt="Нажать кнопку Upload Fonts"/>
+                    </li>
+                    <li>
+                        Выбрать разархивированную папку <b>Open_Sans</b> и файл шрифта <b>OpenSans-Regular.ttf</b> и нажать <b>Открыть</b>
+                        <br/>
+                        <img src="images/font-squirrel-webfont-generator-upload-ttf.png" alt="Выбрать файл OpenSans-Regular.ttf"/>
+                    </li>
+                    <li>
+                        Нажать на чекбокс <b>Agreement</b> и нажать на кнопку <b>Download Your Kit</b>
+                        <br/>
+                        <img src="images/font-squirrel-webfont-generator-download-kit.png" alt="Нажать на чекбокс Agreement и нажать на кнопку Download Your Kit"/>
+                    </li>
+                    <li>
+                        Разархивировать скачанную папку с названием подобным <b>webfontkit-20161118-024022.zip</b> и открыть её:
+                        <br/>
+                        <img src="images/font-squirrel-webfont-generator-downloaded-kit.png" alt="Загруженный набор с веб-шрифтом"/>
+                    </li>
+                    <li>
+                        Открыть файл <b>opensans-regular-demo.html</b>:
+                        <br/>
+                        <img src="images/font-squirrel-webfont-generator-downloaded-kit-file.png" alt="Открыть файл opensans-regular-demo"/>
+                    </li>
+                    
+                    <li>Скачать архив с проектом <a href="mobi.zip">mobi.zip</a> (тут одна страница) и разархивировать себе на рабочий стол.</li>
+                </ol>
+            </div>
             <h3>Иконочные шрифты</h3>
 
             <h4>Собственный иконочный шрифт</h4>
