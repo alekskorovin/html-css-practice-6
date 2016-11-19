@@ -19,7 +19,7 @@
 <body>
 <header>
     <div class="inner">
-        <h1>Шрифты, их подключение. Работа с SVG. Меню. JavaScript. Динамические данные. Системы контроля версий.</h1>
+        <h1>Шрифты, их подключение. Меню. JavaScript. Системы контроля версий.</h1>
         <a href="https://github.com/alekskorovin/html-css-practice-6/" class="button">
             <small>открыть на</small>
             GitHub</a>
@@ -35,7 +35,7 @@
             </h2>
             <h3>До эпохи веб-шрифтов</h3>
             <p>
-                Использовали все доступные технологии:
+                Для вставки в веб-страницу нестандартных шрифтов использовали все доступные технологии:
             </p>
             <ul>
                 <li>Просто статические изображения. Да-да нестандартные заголовки просто резались картинками.</li>
@@ -76,8 +76,16 @@
             <p>
                 Преобразовать шрифт в другие форматы поможет сервис <a href="https://www.fontsquirrel.com/">Font Squirrel</a>.
             </p>
+            <blockquote>
+                <p>
+                    Исчерпывающая информация о @font-face: <a href="https://css-tricks.com/snippets/css/using-font-face/">https://css-tricks.com/snippets/css/using-font-face/</a>
+                </p>
+                <p>
+                    Поддержку технологии можно проверить на CanIUse &mdash; <a href="http://caniuse.com/#search=font-face">http://caniuse.com/#search=font-face</a>
+                </p>
+            </blockquote>
             <div class="task">
-                <h3>Задание</h3>
+                <h3>Задание #1.1</h3>
                 <ol>
                     <li>Заказчик решил что вместо подключения сервиса Google Fonts необходимо использовать локальные файлы шрифтов.</li>
                     <li>Зайти на страницу <a href="https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans">https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans</a></li>
@@ -131,34 +139,234 @@
                     <li>
                         Открыть файл <b>opensans-regular-demo.html</b>:
                         <br/>
-                        <img src="images/font-squirrel-webfont-generator-downloaded-kit-file.png" alt="Открыть файл opensans-regular-demo"/>
+                        <img src="images/font-squirrel-webfont-generator-downloaded-kit-file.png" alt="Открыть файл opensans-regular-demo.html"/>
+                        <br/>
+                        <img src="images/font-squirrel-webfont-generator-downloaded-kit-html.png" alt="Открытый файл opensans-regular-demo.html"/>
                     </li>
-                    
-                    <li>Скачать архив с проектом <a href="mobi.zip">mobi.zip</a> (тут одна страница) и разархивировать себе на рабочий стол.</li>
+                    <li>
+                        Скачать архив с проектом <a href="mobi.zip">mobi.zip</a> (тут одна страница) и разархивировать его, затем открыть папку с проектом и создать папку fonts.
+                        <br/>
+                        <img src="images/project-fonts-folder.png" alt="Проект с созданной папкой fonts"/>
+                    </li>
+                    <li>
+                        Открыть папку с названием подобным <b>webfontkit-20161118-024022.woff</b> и скопировать в буфер обмена файлы <b>opensans-regular-webfont.woff</b> и <b>opensans-regular-webfont.woff2</b>
+                        <img src="images/font-squirrel-copy-font-files.png" alt="Скопировать файлы webfontkit-20161118-024022.woff и opensans-regular-webfont.woff"/>
+                    </li>
+                    <li>
+                        Открыть папку <b>mobi/fonts</b> и вставить два файла шрифтов:
+                        <br/>
+                        <img src="images/mobi-paste-woff-files.png" alt="Вставить два файла шрифтов"/>
+                    </li>
+                    <li>
+                        Открыть <b>index.html</b> в редакторе кода и удалить подключение Google Fonts удалив строчку:
+                        <br />
+<pre><code class="html">    &lt;link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"&gt;</code></pre>
+                    </li>
+                    <li>
+                        Открыть папку с названием подобным <b>webfontkit-20161118-024022.woff</b> и открыть в редакторе кода файл <b>stylesheet.css</b> и скопировать в буфер обмена правило <b>@font-face</b>:
+                        <br/>
+                        <img src="images/open-font-squirrel-stylesheet.png" alt="Открыть stylesheet.css"/>
+<pre><code class="css">@font-face {
+    font-family: 'open_sansregular';
+    src: url('opensans-regular-webfont.woff2') format('woff2'),
+    url('opensans-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}</code></pre>
+                    </li>
+                    <li>
+                        Открыть в папке проекта <b>mobi</b> в редакторе кода файл <b>css/main.css</b> и в начало файла вставить скопированный ранее код.
+                    </li>
+                    <li>
+                        Исправить название шрифта c <b>'open_sansregular'</b> на <b>'Open Sans'</b> и добавить правильный путь к файлам шрифта:
+<pre><code class="css">@font-face {
+    font-family: <b>'Open Sans'</b>;
+    src: url('<b>../fonts/</b>opensans-regular-webfont.woff2') format('woff2'),
+    url('<b>../fonts/</b>opensans-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}</code></pre>
+                        <br/>
+                        Сохранить файл <b>main.css</b>.
+                    </li>
+                    <li>
+                        Открыть в браузере <b>index.html</b> проекта, затем панель для разработчика и вкладку <b>Network</b> и убедиться что теперь вместо шрифта из Google Fonts используется локальный шрифт <b>opensans-regular-webfont.woff2</b> из папки <b>fonts</b>.
+                        <br />
+                        <img src="images/mobi-loaded-opensans-regular-webfont.woff2.png" alt="Загрузился opensans-regular-webfont.woff2"/>
+                    </li>
                 </ol>
             </div>
             <h3>Иконочные шрифты</h3>
-
+            <p>
+                Иконочные шрифты это шрифты содержащие вместо символов-букв символы-иконки.
+            </p>
+            <p>
+                Самый популярный иконочный шрифт это <a href="http://fontawesome.ru/">Font Awesome</a> включающий в себя 634 иконки.
+            </p>
+            <p>
+                Эта технология появилась, вызвала восторг и затем дальнейшую критику, однако её использовали и скорее всего в некоторых проектам будут продолжать использовать.
+            </p>
+            <p>Почему эта технология прекрасна:</p>
+            <ul>
+                <li>
+                    <a href="https://css-tricks.com/examples/IconFont/">Icon Fonts are Awesome</a>
+                </li>
+                <li>
+                    Простота подключения &mdash; <a href="http://ruseller.com/lessons.php?rub=2&id=2159">Font Awesome и IcoMoon: работа с иконочным шрифтом</a>
+                </li>
+                <li>
+                    Существование сервисов таких как <a href="https://icomoon.io/">IcoMoon</a> позволяющих с лёгкостью создать собственный иконочный шрифт.
+                </li>
+            </ul>
+            <p>
+                Почему эта технология не так хороша по сравнению с SVG:
+            </p>
+            <ul>
+                <li>
+                    <a href="http://frontender.info/ten-reasons-we-switched-from-an-icon-font-to-svg/">Десять причин нашего перехода с иконочного шрифта на SVG</a>
+                </li>
+                <li>
+                    <a href="https://cloudfour.com/thinks/seriously-dont-use-icon-fonts/">Seriously, Don’t Use Icon Fonts</a>
+                </li>
+                <li>
+                    <a href="https://css-tricks.com/icon-fonts-vs-svg/">Inline SVG vs Icon Fonts [CAGEMATCH]</a>
+                </li>
+            </ul>
+            <p>
+                Простота создания собственного иконочного шрифта, и существование большого количества бесплатного иконочных шрифтов привело к значительному распространению этой технологии.
+            </p>
+            <p>
+                Мы возьмём SVG-иконки которые были использованы в проекте <b>mobi</b> и сделаем иконочный шрифт, который будет включать в себя эти иконки.
+            </p>
             <h4>Собственный иконочный шрифт</h4>
             <div class="task">
-                <h3>Задание</h3>
+                <h3>Задание #1.2</h3>
                 <ol>
-                    <li></li>
+                    <li>
+                        Зайти на страницу приложения <a href="https://icomoon.io/app/#/select">IcoMoon App</a> и нажать кнопку <b>Import Icons</b>:
+                        <br/>
+                        <img src="images/icomoon.png" alt="IcoMoon App"/>
+                    </li>
+                    <li>
+                        В открывшемся диалоге зайти в папку проекта <b>mobi</b> <b>img</b>, выбрать SVG файлы и нажать <b>Открыть</b>:
+                        <br/>
+                        <img src="images/icomoon-choose-files.png" alt="Выбрать SVG-файлы"/>
+                    </li>
+                    <li>
+                        Кликнуть на иконку меню и <b>View / Edit Info</b>
+                        <br/>
+                        <img src="images/icomoon-view-edit-info.png" alt="View / Edit Info"/>
+                    </li>
+                    <li>
+                        Нажать кнопку <b>Edit Metadata</b>
+                        <br/>
+                        <img src="images/icomoon-view-edit-metadata.png" alt="Edit metadata"/>
+                    </li>
+                    <li>
+                        Ввести в поле <b>Name</b> название <b>Mobi</b> и нажать на крестик для закрытия диалога:
+                        <br/>
+                        <img src="images/icomoon-view-edit-metadata-mobi.png" alt="Change name" />
+                    </li>
+                    <li>
+                        Кликнуть на каждую иконку и на кнопку внизу справа <b>Generate Font</b>
+                        <br/>
+                        <img src="images/icomoon-generate-font.png" alt="Generate Font"/>
+                    </li>
+                    <li>
+                        Убедиться что все три иконки присутствуют и нажать на кнопку <b>Download</b>:
+                        <br/>
+                        <img src="images/icomoon-generate-font-download.png" alt="Download"/>
+                    </li>
+                    <li>
+                        После загрузки ахрива <b>icomoon.zip</b> разархивировать его, зайти в папку и отрыть в браузере файл <b>demo.html</b>:
+                        <br/>
+                        <img src="images/icomoon-open-demo.png" alt="Открыть файл demo.html"/>
+                    </li>
+                    <li>
+                        Открыть панель для разработчика и посмотреть какой шрифт используется для элемента <code>&lt;span class="icon-pencil"&gt;</code>
+                        <br/>
+                        <img src="images/icomoon-pencil-styles.png" alt="Стили для элемента .icon-pencil"/>
+                    </li>
+                    <li>
+                        Посмотреть какие стили используются для псевдоэлемента <b>:before</b> элемента <b>.icon-pencil</b>:
+                        <br/>
+                        <img src="images/icomoon-pencil-styles-before.png" alt="before элемента .icon-pencil"/>
+                    </li>
+                    <li>
+                        В папке <b>icomoon/fonts</b> выделить все файлы и скопировать их в буфер обмена:
+                        <br/>
+                        <img src="images/icomoon-font-files.png" alt="Выделить файлы шрифтов"/>
+                    </li>
+                    <li>
+                        Вставить файлы в папку <b>mobi/fonts</b>:
+                        <br/>
+                        <img src="images/mobi-font-files.png" alt="mobi/fonts"/>
+                    </li>
+                    <li>
+                        Открыть файл <b>style.css</b> из папки <b>icomoon</b> в редакторе кода:
+                        <br/>
+                        <img src="images/icomoon-style.png" alt=""/>
+                    </li>
+                    <li>
+                        Выделить весь код и скопировать в буфер обмена:
+                        <br/>
+                        <img src="images/icomoon-styles-copy.png" alt="Выделить весь код и скопировать в буфер обмена"/>
+                    </li>
+                    <li>
+                        Открыть файл <b>main.css</b> проекта <b>mobi</b> в редакторе кода и вставить в начало файла код из буфера обмена.
+                    </li>
+                    <li>
+                        Исправить пути к файлам шрифтов:
+<pre><code class="css">@font-face {
+    font-family: 'icomoon';
+    src:  url('<b>../</b>fonts/icomoon.eot?3wxwm2');
+    src:  url('<b>../</b>fonts/icomoon.eot?3wxwm2#iefix') format('embedded-opentype'),
+    url('<b>../</b>fonts/icomoon.ttf?3wxwm2') format('truetype'),
+    url('<b>../</b>fonts/icomoon.woff?3wxwm2') format('woff'),
+    url('<b>../</b>fonts/icomoon.svg?3wxwm2#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}</code></pre>
+                    </li>
+                    <li>
+                        Открыть в редакторе кода <b>mobi/index.html</b> и заменить изображения:
+                        <ul>
+                            <li><code class="html">&lt;img src="img/pencil.svg" width="78" height="108" alt="Contrary to popular" /&gt;</code><br /> на <code class="html">&lt;span class="icon-pencil"&gt;&lt;/span&gt;</code></li>
+                            <li><code class="html">&lt;img src="img/display.svg" width="95" height="81" alt="Contrary to popular" /&gt;</code><br /> на <code class="html">&lt;span class="icon-display"&gt;&lt;/span&gt;</code></li>
+                            <li><code class="html">&lt;img src="img/cart.svg" width="98" height="90" alt="Contrary to popular" /&gt;</code><br /> на <code class="html">&lt;span class="icon-cart"&gt;&lt;/span&gt;</code></li>
+                        </ul>
+                        Сохранить файли открыть его в браузере:
+                        <br />
+                        <img src="images/mobi-icon-fonts-small.png" alt="Иконки вставленные с помощью шрифта"/>
+                    </li>
+                    <li>
+                        Открыть в редакторе кода <b>mobi/css/main.css</b> и заменить CSS-код:
+<pre><code class="css">.features-img img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}</code></pre>
+                        на следующий:
+ <pre><code class="css">.features-img [class^="icon-"] {
+     font-size: 8.1rem;
+     color: #fff;
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%, -50%);
+ }</code></pre>
+                        Сохранить файл.
+                    </li>
+                    <li>
+                        Обновить в браузере страницу <b>index.html</b> и убедиться что иконки приняли более подходящий размер и цвет:
+                        <br/>
+                        <img src="images/mobi-icon-fonts-fit.png" alt="Более подходящий размер и цвет иконок"/>
+                        <br/>
+                        Индивидуальные размеры и положение каждой иконки можно исправить согласно дизайну используя PerfectPixel плагин и CSS.
+                    </li>
                 </ol>
             </div>
-            <h2>
-                <a id="svg" class="anchor" href="#svg" aria-hidden="true"><span aria-hidden="true"
-                                                                                          class="octicon octicon-link"></span>Работа с SVG.</a>
-            </h2>
-            <h3>
-                Редактирование SVG.
-            </h3>
-            <h3>
-                Создание SVG спрайта.
-            </h3>
-            <h3>
-                Перекрашивание SVG.
-            </h3>
             <h2>
                 <a id="menu" class="anchor" href="#menu" aria-hidden="true"><span aria-hidden="true"
                                                                                           class="octicon octicon-link"></span>Меню.</a>
@@ -166,108 +374,316 @@
             <h3>
                 Выпадающие меню.
             </h3>
+            <p>
+                В случае когда есть разделы и подстраницы сайта используется выпадающее меню.
+            </p>
+            <img src="images/drop-menu.png" alt="Выпадающее меню"/>
+            <p>
+                Для реализации подобных меню требуется изначально сделать подменю с помощью элемента <b>ul</b> внутри элемента списка основного меню, сделать подменю невидимым используя <b>display: none;</b>, абсолютно спозиционировать его относительно пункта меню <b>Contact</b>, и при <b>li:hover</b> сделать меню видимым.
+            </p>
+            <p data-height="278" data-theme-id="0" data-slug-hash="yVgpdN" data-default-tab="html,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="drop menu" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/yVgpdN/">drop menu</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             <div class="task">
-                <h3>Задание</h3>
+                <h3>Задание #2.1</h3>
                 <ol>
-                    <li></li>
+                    <li>Скачать PSD файл <a href="mobi-home-desktop-drop-menu.psd">mobi-home-desktop-drop-menu.psd</a>.</li>
+                    <li>
+                        Открыть в редакторе кода <b>mobi/index.html</b> и обновить HTML код меню используя пример <a href="http://codepen.io/alekskorovin/pen/yVgpdN/">http://codepen.io/alekskorovin/pen/yVgpdN/</a>
+                    </li>
+                    <li>
+                        Открыть в редакторе кода <b>mobi/css/main.css</b> и вставить CSS код из примера <a href="http://codepen.io/alekskorovin/pen/yVgpdN/">http://codepen.io/alekskorovin/pen/yVgpdN/</a> <b>находящийся между комментариями</b> примера
+                        <br/> <b>/* Submenu */</b>.
+                        Сохранить файл и открыть страницу <b>index.html</b> в браузере.
+                    </li>
+                    <li>
+                        Открыть скачанный PSD файл <a href="mobi-home-desktop-drop-menu.psd">mobi-home-desktop-drop-menu.psd</a> и используя Photoshop уточнить все размеры, после чего обновить <b>mobi/css/main.css</b>.
+                    </li>
+                    <li>
+                        Добавить для <b>.header-submenu</b> <code class="css">display: none;</code>
+                    </li>
+                    <li>
+                        Добавить для <b>.header-menu li </b> <code class="css">position: relative;</code>
+                    </li>
                 </ol>
             </div>
             <h3>
-                Выезжающее меню.
+                Выезжающие меню.
             </h3>
+            <p>
+                Меню выезжающее из-за края страницы называется <b>off canvas</b> меню, такие меню позиционируют абсолютно либо фиксированно и используя <b>transform: translateX(-100%)</b> задвигают изначально за пределы видимой области страницы. При добавлении класса либо используя состояние наведения либо псевдоселектор элемента формы <b>input type="checkbox"</b>, свойство <b>transform</b> меняется на <b>transform: translateX(0)</b>, при этом можно добавить <b>transition</b> для более плавного эффекта.
+            </p>
+            <p data-height="486" data-theme-id="0" data-slug-hash="bBgLBb" data-default-tab="css,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="off canvas menu" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/bBgLBb/">off canvas menu</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             <div class="task">
-                <h3>Задание</h3>
+                <h3>Задание #2.2</h3>
                 <ol>
-                    <li></li>
+                    <li>
+                        Скопировать из примера <a href="http://codepen.io/alekskorovin/pen/bBgLBb?editors=1100">http://codepen.io/alekskorovin/pen/bBgLBb?editors=1100</a> HTML-код и вставить его в <b>mobi/index.html</b> после открывающего тега <code class="html">&lt;body&gt;</code> и сохранить файл.
+                    </li>
+                    <li>
+                        Скопировать из примера <a href="http://codepen.io/alekskorovin/pen/bBgLBb?editors=1100">http://codepen.io/alekskorovin/pen/bBgLBb?editors=1100</a> HTML-код и вставить его в <b>mobi/index.html</b> CSS-код и вставить его в конец файла <b>mobi/css/main.css</b> и сохранить файл.
+                    </li>
+                    <li>
+                        Открыть в браузере страницу <b>mobi/index.html</b>
+                    </li>
                 </ol>
             </div>
+
             <h2>
                 <a id="js" class="anchor" href="#js" aria-hidden="true"><span aria-hidden="true"
                                                                                 class="octicon octicon-link"></span>JavaScript.</a>
             </h2>
-            <h3>Объекты и функции</h3>
+            <blockquote>
+                JavaScript&reg; (часто просто JS) — это легкий, интерпретируемый, объектно-ориентированный язык с функциями первого класса. Наиболее широкое применение находит как язык сценариев веб-страниц, но также используется и в других программных продуктах, например, node.js или Apache CouchDB.
+                <br />
+                <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript">https://developer.mozilla.org/ru/docs/Web/JavaScript</a>
+            </blockquote>
+            <p>
+                JavaScript код может быть сохранён в файле с расширением <b>js</b> и подключен к странице с помощью тега <b>script</b> а в атрибуте <b>src</b> будет путь к JS-файлу. Так же JS-код можно писать прямо между открывающим и закрывающим тегом <b>script</b>: <code class="html">&lt;script&gt;alert('Привет мир!');&lt;/script&gt;</code>. Кроме того код можно вставить в адресную строку браузера с префиксом <b>javascript:</b> и он выполнится.
+            </p>
+            <div class="task">
+                <h3>Задание #3.1</h3>
+                <ol>
+                    <li>Написать в строке браузера код <code class="js">javascript:</code> и затем <code class="js">alert('Привет мир!');</code> и нажать <b>Enter</b></li>
+                </ol>
+            </div>
+            <p>
+                Кроме того JS код можно запускать в панели для разработчика во вкладке Consle:
+                <br/>
+                <img src="images/js-console.png" alt="Запуск JS кода в консоли"/>
+            </p>
+            <h3>
+                Переменные
+            </h3>
+            <p>
+                В JavaScript ES5 переменные объявляются ключевым словом <b>var</b>: <code>var myVariable = 1;</code> &mdash; создана переменная <b>myVariable</b> хранящая значение <b>1</b>. Значение переменных может переопределяться по мере выполнения скрипта и это может быть проблемой.
+            </p>
+            <p>
+                Переменные в javascript слабо типизированы. Это означает, что при объявлении не нужно указывать тип. Можно присвоить любой переменной любое значение.
+            </p>
+            <p>
+                Однако при этом интерпретатор javascript (браузер) всегда знает, какого типа значение содержит данная переменная, а значит - какие операции к ней применимы.
+            </p>
+            <h3>
+                Типы данных
+            </h3>
+            <p>
+                В JavaScript есть 5 "примитивных" типов данных и 6-й тип <b>объект</b> (object) <a href="https://learn.javascript.ru/types-intro">https://learn.javascript.ru/types-intro</a>:
+            </p>
+            <ul>
+                <li><b>number</b> &mdash; число, используется как для целых так и для дробных чисел <br /><code class="js">var myNumber1 = 1; var myNumber2 = 1.5;</code></li>
+                <li><b>string</b> &mdash; строка, значение заключённое в двойные либо одинарные кавычки <br /><code class="js">var myString = 'Любая строка';</code></li>
+                <li><b>boolean</b> &mdash; логический, значением может быть <b>true</b> (истина) и <b>false</b> (ложь) <br /><code class="js">var isSummer = false; var isAutumn = true;</code></li>
+                <li><b>null</b> &mdash; специальное значение для того чтобы заполнить переменную несуществующим объектом (это показывает что значение уже где-то задано) <br /><code class="js">var markForHTMLCourse = null;</code></li>
+                <li><b>undefined</b> &mdash; специальное значение хранящееся в переменной которой не присвоено значение <br /><code class="js">var myUndefinedVariable; alert(myUndefinedVariable)</code></li>
+            </ul>
+            <h3>Объекты</h3>
+            <p>
+                Отдельный тип данных это <b>object</b> &mdash; объект, он используется для коллекций данных а так же для более сложных структур.
+            </p>
+<pre><code class="js">var myObject = {
+    userName: 'John Doe',
+    email: 'johndoe@gmail.com',
+    age: 25,
+    address: {
+        city: 'New York',
+        state: 'NY',
+        zip: 375
+    },
+    phone: null
+}</code></pre>
+            <p>
+                Проверить тип данных можно используя оператор <b>typeof</b>
+            </p>
+<pre><code class="js">typeof undefined // "undefined"
+
+typeof 0 // "number"
+
+typeof true // "boolean"
+
+typeof "foo" // "string"
+
+typeof {} // "object"
+
+typeof null // "object"
+
+typeof function(){} // "function"
+</code></pre>
+            <blockquote>
+                Результат typeof null == "object" – это официально признанная ошибка в языке, которая сохраняется для совместимости. На самом деле null – это не объект, а отдельный тип данных.
+            </blockquote>
+            <p>
+                Функции являются подвидом объекта, но при определении типа показывается <b>function</b> потому что это более удобно.
+            </p>
+            <h3>Функции</h3>
+            <p>
+                Функции предназначены для многократного использования фрагментов кода.
+            </p>
+            <p>
+                В JS можно объявлять функции по разному. Основные способы:
+            </p>
+            <ul>
+                <li>
+                    <b>Function Declaration</b> &mdash; декларативное объявление функции, самый классический вариант
+<pre><code class="js">function myFunction (message) {
+    alert(message);
+}
+myFunction('тестовое сообщение');
+</code></pre>
+                </li>
+                <li>
+                    <b>Function expression</b> &mdash; функциональное выражение, при этом результат выполнения функции хранится в переменной.
+<pre><code class="js">var myFunction = function(message) {
+    alert(message);
+}
+myFunction('тестовое сообщение');
+</code></pre>
+                </li>
+                <li>
+                    <b>Immediately-Invoked Function Expression</b> (IIFE) &mdash; Немедленно вызываемая функция в JavaScript (IIFE) — это синтаксическая конструкция, позволяющая вызвать функцию сразу же в месте ее определения.
+<pre><code class="js">(function (message) {
+    alert(message);
+}('тестовое сообщение'));
+</code></pre>
+                    или так:
+<pre><code class="js">(function (message) {
+    alert(message);
+})('тестовое сообщение');
+</code></pre>
+                </li>
+            </ul>
+            <h3>Циклы</h3>
+            <p>
+                Циклы - простой способ сделать какое-то действие несколько раз.
+            </p>
+            <p>
+                <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/%D0%A6%D0%B8%D0%BA%D0%BB%D1%8B_%D0%B8_%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8">Циклы и итерации</a> хорошо описаны на MDN (Mozilla Developer Network).
+            </p>
+            <h4>Примеры циклов</h4>
+            <p data-height="155" data-theme-id="0" data-slug-hash="bBgvJL" data-default-tab="js,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="JS loops" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/bBgvJL/">JS loops</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+            <p data-height="232" data-theme-id="0" data-slug-hash="QGdmRx" data-default-tab="js,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="JS loops" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/QGdmRx/">JS loops</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 
             <h3>
                 Обзор библиотек и фреймворков
             </h3>
             <h4>jQuery</h4>
+            <p>
+                Официальная документация &mdash; <a href="http://learn.jquery.com/about-jquery/">http://learn.jquery.com/about-jquery/</a>
+                <br />
+                Частичный перевод на русском языке &mdash; <a href="http://jquery-docs.ru/core/">http://jquery-docs.ru/core/</a>
+            </p>
+            <p>
+                Библиотека позволяет работать с:
+            </p>
+            <ul>
+                <li>DOM &mdash; выбирать любой элемент страницы по селекторам</li>
+                <li>Атрибутами &mdash; работать с атрибутами элементов</li>
+                <li>Событиями &mdash; которые вызываются на элементах либо самой странице</li>
+                <li>Ajax &mdash; отправлять и принимать данные в формате JSON</li>
+                <li>Эффектами &mdash; простейшая анимация</li>
+                <li>Стилями &mdash; читать либо обновлять стили элементов</li>
+            </ul>
+            <h5>Использование</h5>
+            <p>
+                jQuery-код должен заключаться в функцию вызываемую после полной загрузки документа:
+            </p>
+            <p data-height="200" data-theme-id="0" data-slug-hash="RoKMLr" data-default-tab="js,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="jQuery document ready" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/RoKMLr/">jQuery document ready</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             <h4>underscore/lo-dash</h4>
-            <h4>Понятие MVVM</h4>
-            <h4>AngularJS 1.*</h4>
-            <h4>React</h4>
-            <h4>VueJS</h4>
-
+            <p>
+                Две библиотеки содержащие наиболее необходимые функции для работы с данными: сортировки, переборы массивов, нахождение объектов в массивах, обработка объектов и массивов, коллекций, а так же специальные функции и утилиты.
+            </p>
+            <p>
+                В состав Underscore входит более 80 функций, часть из которых решает более стандартные задачи, например, упрощает работу с коллекциями, а часть позволяет проще делать более экзотические вещи, такие как: функциональное связывание, javascript-шаблонизация, проверки на равенство (напр. объектов), и т.д. Кроме того, Underscore умеет делегировать вызовы, т.е. если код выполняется в современном браузере, который имеет нативные реализации таких методов, как: forEach, map, reduce, filter, every, some и indexOf, то будут вызваны именно они.
+            </p>
+            <ul>
+                <li><a href="http://underscorejs.ru/">http://underscorejs.ru/</a></li>
+                <li><a href="http://underscorejs.org/">http://underscorejs.org/</a></li>
+                <li><a href="https://lodash.com/">https://lodash.com/</a></li>
+            </ul>
+            <h3>Без библиотек</h3>
+            <h3>Выбор элементов</h3>
+            <p>
+                Для выбора элементов на странице можно использовать <code class="js">document.querySelector</code>,
+                <a href="https://developer.mozilla.org/ru/docs/Web/API/Document/querySelector">https://developer.mozilla.org/ru/docs/Web/API/Document/querySelector</a>
+            </p>
+            <p data-height="152" data-theme-id="0" data-slug-hash="ObWvZm" data-default-tab="js,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="JS querySelector" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/ObWvZm/">JS querySelector</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             <h3>API для работы с классами</h3>
+            <p>
+                В JavaScript ES5 есть API который поддерживается с Internet Explorer 10 <a href="http://caniuse.com/#search=classlist">http://caniuse.com/#search=classlist</a> для работы с CSS классами.
+            </p>
+            <p>
+                Без библиотек возможно включать-выключать CSS-класс, добавлять, удалять, узнавать есть ли такой CSS класс<br />
+                <a href="https://developer.mozilla.org/ru/docs/Web/API/Element/classList">https://developer.mozilla.org/ru/docs/Web/API/Element/classList</a>
+            </p>
+
+            <p data-height="255" data-theme-id="0" data-slug-hash="xRgjwG" data-default-tab="js,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="JS classList.toggle" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/xRgjwG/">JS classList.toggle</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+            <p>
+                То же с jQuery:
+            </p>
+            <p data-height="165" data-theme-id="0" data-slug-hash="JbELzj" data-default-tab="js,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="JS jQuery" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/JbELzj/">JS jQuery</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             <h3>Компонент accordion</h3>
             <h4>JavaScript версия</h4>
-
+            <p data-height="387" data-theme-id="0" data-slug-hash="PbWeqO" data-default-tab="js,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="JS querySelector classList accordion" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/PbWeqO/">JS querySelector classList accordion</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             <h4>jQuery версия</h4>
+            <p data-height="317" data-theme-id="0" data-slug-hash="pNRVwB" data-default-tab="js,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="JS  jquery accordion" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/pNRVwB/">JS  jquery accordion</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             <div class="task">
-                <h3>Задание</h3>
+                <h3>Задание #3.2</h3>
                 <ol>
-                    <li></li>
+                    <li>Скачать файл <a href="mobi-home-desktop-drop-menu-accordion.psd">mobi-home-desktop-drop-menu-accordion.psd</a> и открыть его в Photoshop-е.</li>
+                    <li>
+                        Обновить проект <b>mobi</b> согласно дизайну и появившемуся аккордиону используя примеры на JavaScript или jQuery.
+                        <br />
+                        <img src="images/accordion-component.png" alt="Компонент аккордион"/>
+                    </li>
                 </ol>
             </div>
             <h3>Компонент popup</h3>
             <h4>JavaScript версия</h4>
+            <p data-height="398" data-theme-id="0" data-slug-hash="aBpGaB" data-default-tab="js,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="JS  js popup" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/aBpGaB/">JS  js popup</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             <h4>jQuery версия</h4>
-            <div class="task">
-                <h3>Задание</h3>
-                <ol>
-                    <li></li>
-                </ol>
-            </div>
-            <h3>API для хранения данных в браузере</h3>
-            <h4>Cookie</h4>
-            <h4>LocalStorage</h4>
-            <h4>SessionStorage</h4>
-            <h5>Копонент выбора темы</h5>
-            <div class="task">
-                <h3>Задание</h3>
-                <ol>
-                    <li></li>
-                </ol>
-            </div>
-
-            <h2>
-                <a id="dynamic-data" class="anchor" href="#dynamic-data" aria-hidden="true"><span aria-hidden="true"
-                                                                                class="octicon octicon-link"></span>Динамические данные.</a>
-            </h2>
-            <h3>Базы данных</h3>
-            <h4>Firebase</h4>
-            <h3>Работа с JSON</h3>
-            <div class="task">
-                <h3>Задание</h3>
-                <ol>
-                    <li></li>
-                </ol>
-            </div>
-
+            <p data-height="540" data-theme-id="0" data-slug-hash="NbdMXe" data-default-tab="js,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="JS  jquery popup" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/NbdMXe/">JS  jquery popup</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             <h2>
                 <a id="cvs" class="anchor" href="#cvs" aria-hidden="true"><span aria-hidden="true"
                                                                                                   class="octicon octicon-link"></span>Системы контроля версий.</a>
             </h2>
+            <p>
+                Система управления версиями позволяет хранить несколько версий одного и того же документа, при необходимости возвращаться к более ранним версиям, определять, кто и когда сделал то или иное изменение, и многое другое.
+            </p>
+            <p>
+                Система контроля версий — это система, которая регистрирует все изменения в файлах, а в дальнейшем позволяет вернуться к их более ранним версиям и определить, кем и когда были сделаны конкретные изменения.
+            </p>
+            <p>
+                В централизованных системах контроля версий (CVS, Subversion, Perforce) есть центральный сервер, на котором хранятся все данные, и ряд клиентов, получающих из него копии файлов. В таких системах всегда понятно, кто чем занимается в проекте, и их проще администрировать.
+            </p>
+            <p>
+                Распределенные системы контроля версий (Git, Mercurial, Bazaar) вместо традиционной клиент-серверной модели используют распределенную, то есть все изменения хранятся в локальном хранилище на компьютере и при необходимости синхронизируются с другими. В этом случае устраняется зависимость от центрального сервера, можно вести работу даже без сетевого соединения с ним.
+            </p>
+            <p>
+                <a href="http://tagline.ru/version-control-systems-rating/">Рейтинг систем контроля версий 2016</a>
+            </p>
             <h3>Сервисы GitHub, Bitbucket</h3>
+            <p>
+
+            </p>
+
+            <blockquote>
+                Сниппет для разрыва слов без пробелов:
+                <a href="https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/">https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/</a>
+            </blockquote>
             <div class="task">
                 <h3>Задание</h3>
                 <ol>
-                    <li></li>
+                    <li>Зарегистрироваться в сервисе GitHub и скинуть в Slack имя своего пользователя.</li>
+                    <li>Зарегистрироваться в сервисе Bitbucket и скинуть в Slack имя своего пользователя.</li>
+                    <li>Скачать программу SourceTree &mdash; <a href="https://downloads.atlassian.com/software/sourcetree/windows/SourceTreeSetup_1.9.6.1.exe">https://downloads.atlassian.com/software/sourcetree/windows/SourceTreeSetup_1.9.6.1.exe</a> и установить её.</li>
                 </ol>
             </div>
-            <h3>Репозиторий</h3>
-            <div class="task">
-                <h3>Задание</h3>
-                <ol>
-                    <li></li>
-                </ol>
-            </div>
-            <h3>Разница между FTP и системами контроля версий</h3>
 
 
             <div class="task">
                 <h3>Домашнее задание</h3>
                 <ol>
-                    <li></li>
+                    <li>Залить на FTP все свои работы.</li>
+                    <li>Доверстать макет <b>mobi</b> включая выпадающее, выезжающее меню, а так же аккордион.</li>
+                    <li>Пройти курс <b>Мастерская: создаём меню</b></li>
                 </ol>
             </div>
 
