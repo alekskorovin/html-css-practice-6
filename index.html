@@ -49,7 +49,7 @@
             <p>Существует несколько форматов шрифтов которые поддерживаются браузерами.</p>
             <ul>
                 <li><b>TTF/OTF</b> &mdash; (TrueType font) наиболее известный формат шрифтов, который работает и для Mac OS и для Windows. В IE9 работает только если в файле указан флажок "устанавливаемый" (installable).</li>
-                <li><b>WOFF</b> &mdash; (Web Open Font Format) более сжатый формат, представлен в 2009-м году, самый поддерживаемый формат в браузерах. Для Firefox, Internet Explorer >=9 и декстопных браузеров на webkit(Chrome, Safari, Opera).</li>
+                <li><b>WOFF</b> &mdash; (Web Open Font Format) более сжатый формат, представлен в 2009-м году, самый поддерживаемый формат в браузерах. Для Firefox, Internet Explorer >=9 и десктопных браузеров на webkit (Chrome, Safari, Opera).</li>
                 <li><b>WOFF2</b> &mdash; новое поколение WOFF 2.0, ещё более сжатый (на 30% больше чем WOFF 1.0), поддерживается: в Chrome, Firefox (отключен по умолчанию), Opera.</li>
                 <li><b>SVG</b> &mdash; именно шрифт а не изображение! Не поддерживается в IE/Edge, Firefox, поддерживается всеми браузерами на webkit, включая мобильные.</li>
                 <li><b>EOT</b> &mdash; (Embedded OpenType) формат Microsoft и соответственно поддерживается исключительно в браузерах этой компании: IE/Edge. Для Internet Explorer <= 8.</li>
@@ -87,7 +87,7 @@
             <div class="task">
                 <h3>Задание #1.1</h3>
                 <ol>
-                    <li>Заказчик решил что вместо подключения сервиса Google Fonts необходимо использовать локальные файлы шрифтов.</li>
+                    <li>Заказчик решил что в проекте <b>mobi</b> вместо подключения сервиса Google Fonts необходимо использовать локальные файлы шрифтов.</li>
                     <li>Зайти на страницу <a href="https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans">https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans</a></li>
                     <li>
                         Нажать на кнопку <b>Select this font</b>
@@ -109,7 +109,7 @@
                         <br/>
                         <img src="images/google-font-family-ttf-files.png" alt="Шрифты Open Sans в формате ttf"/>
                         <br/>
-                        Имея ttf файл шрифта, мы можем сконвертировать его в другие форматы.
+                        Имея файл шрифта в формате <b>ttf</b>, мы можем сконвертировать его в другие форматы.
                     </li>
                     <li>
                         Открыть генератор шрифтов сервиса Font Squirrel &mdash; <a href="https://www.fontsquirrel.com/tools/webfont-generator">https://www.fontsquirrel.com/tools/webfont-generator</a>
@@ -190,7 +190,7 @@
                         Сохранить файл <b>main.css</b>.
                     </li>
                     <li>
-                        Открыть в браузере <b>index.html</b> проекта, затем панель для разработчика и вкладку <b>Network</b> и убедиться что теперь вместо шрифта из Google Fonts используется локальный шрифт <b>opensans-regular-webfont.woff2</b> из папки <b>fonts</b>.
+                        Открыть в браузере <b>index.html</b> проекта <b>mobi</b>, затем панель для разработчика и вкладку <b>Network</b> и убедиться что теперь вместо шрифта из Google Fonts используется локальный шрифт <b>opensans-regular-webfont.woff2</b> из папки <b>fonts</b>.
                         <br />
                         <img src="images/mobi-loaded-opensans-regular-webfont.woff2.png" alt="Загрузился opensans-regular-webfont.woff2"/>
                     </li>
@@ -233,7 +233,7 @@
                 </li>
             </ul>
             <p>
-                Простота создания собственного иконочного шрифта, и существование большого количества бесплатного иконочных шрифтов привело к значительному распространению этой технологии.
+                Простота создания собственного иконочного шрифта, и существование большого количества бесплатноых иконочных шрифтов привело к значительному распространению этой технологии.
             </p>
             <p>
                 Мы возьмём SVG-иконки которые были использованы в проекте <b>mobi</b> и сделаем иконочный шрифт, который будет включать в себя эти иконки.
@@ -431,13 +431,16 @@
                 <a id="js" class="anchor" href="#js" aria-hidden="true"><span aria-hidden="true"
                                                                                 class="octicon octicon-link"></span>JavaScript.</a>
             </h2>
+            <p>
+                Исчерпывающая информация о JavaScript содержится на ресурсе <a href="http://learn.javascript.ru/">http://learn.javascript.ru/</a>.
+            </p>
             <blockquote>
                 JavaScript&reg; (часто просто JS) — это легкий, интерпретируемый, объектно-ориентированный язык с функциями первого класса. Наиболее широкое применение находит как язык сценариев веб-страниц, но также используется и в других программных продуктах, например, node.js или Apache CouchDB.
                 <br />
                 <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript">https://developer.mozilla.org/ru/docs/Web/JavaScript</a>
             </blockquote>
             <p>
-                JavaScript код может быть сохранён в файле с расширением <b>js</b> и подключен к странице с помощью тега <b>script</b> а в атрибуте <b>src</b> будет путь к JS-файлу. Так же JS-код можно писать прямо между открывающим и закрывающим тегом <b>script</b>: <code class="html">&lt;script&gt;alert('Привет мир!');&lt;/script&gt;</code>. Кроме того код можно вставить в адресную строку браузера с префиксом <b>javascript:</b> и он выполнится.
+                JavaScript код может быть сохранён в файле с расширением <b>js</b> и подключен к странице с помощью тега <b>script</b> а в атрибуте <b>src</b> будет путь к JS-файлу. Так же JS-код можно писать прямо между открывающим и закрывающим тегом <b>script</b>: <code class="html">&lt;script&gt;alert('Привет мир!');&lt;/script&gt;</code> прямо в HTML. Кроме того код можно вставить в адресную строку браузера с префиксом <b>javascript:</b> и он выполнится.
             </p>
             <div class="task">
                 <h3>Задание #3.1</h3>
@@ -526,16 +529,18 @@ typeof function(){} // "function"
 <pre><code class="js">function myFunction (message) {
     alert(message);
 }
-myFunction('тестовое сообщение');
 </code></pre>
+                    Запустить функцию теперь можно так:
+<pre><code class="js">myFunction('тестовое сообщение');</code></pre>
                 </li>
                 <li>
                     <b>Function expression</b> &mdash; функциональное выражение, при этом результат выполнения функции хранится в переменной.
 <pre><code class="js">var myFunction = function(message) {
     alert(message);
 }
-myFunction('тестовое сообщение');
 </code></pre>
+                    Обычный запуск выполнения функции такой же:
+<pre><code class="js">myFunction('тестовое сообщение');</code></pre>
                 </li>
                 <li>
                     <b>Immediately-Invoked Function Expression</b> (IIFE) &mdash; Немедленно вызываемая функция в JavaScript (IIFE) — это синтаксическая конструкция, позволяющая вызвать функцию сразу же в месте ее определения.
@@ -548,6 +553,7 @@ myFunction('тестовое сообщение');
     alert(message);
 })('тестовое сообщение');
 </code></pre>
+                    При этом функция запустится на выполнения сразу же в том месте где она объявлена.
                 </li>
             </ul>
             <h3>Циклы</h3>
@@ -558,7 +564,11 @@ myFunction('тестовое сообщение');
                 <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/%D0%A6%D0%B8%D0%BA%D0%BB%D1%8B_%D0%B8_%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8">Циклы и итерации</a> хорошо описаны на MDN (Mozilla Developer Network).
             </p>
             <h4>Примеры циклов</h4>
+            <p>Итерационный &mdash; задаётся начальное значение переменной, задаётся условие при котором выполнение цикла заканчивается, и задаётся новое значение получаемое переменной после выполнения цикла.</p>
             <p data-height="155" data-theme-id="0" data-slug-hash="bBgvJL" data-default-tab="js,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="JS loops" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/bBgvJL/">JS loops</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+            <p>
+                Проход по всем ключам-значениям объекта. В переменной <b>property</b> при каждой итерации будет храниться название свойства. Обращаться к свойствам объекта можно используя запись <code>myObject[propertyName]</code> или же <code>myObject.propertyName</code> что одно и то же.
+            </p>
             <p data-height="232" data-theme-id="0" data-slug-hash="QGdmRx" data-default-tab="js,result" data-user="alekskorovin" data-embed-version="2" data-pen-title="JS loops" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/alekskorovin/pen/QGdmRx/">JS loops</a> by Aleksey Korovin (<a href="http://codepen.io/alekskorovin">@alekskorovin</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 
             <h3>
@@ -656,18 +666,14 @@ myFunction('тестовое сообщение');
             <p>
                 Распределенные системы контроля версий (Git, Mercurial, Bazaar) вместо традиционной клиент-серверной модели используют распределенную, то есть все изменения хранятся в локальном хранилище на компьютере и при необходимости синхронизируются с другими. В этом случае устраняется зависимость от центрального сервера, можно вести работу даже без сетевого соединения с ним.
             </p>
+            <p>Проекты в системах контроля версий назваются репозиториями. В репозиториях хранится вся история изменений всех файлов проекта.</p>
             <p>
                 <a href="http://tagline.ru/version-control-systems-rating/">Рейтинг систем контроля версий 2016</a>
             </p>
             <h3>Сервисы GitHub, Bitbucket</h3>
             <p>
-
+                Эти сервисы <a href="https://bitbucket.org">https://bitbucket.org</a> и <a href="https://github.com/">https://github.com/</a> дают возможность бесплатно создавать репозитории и работать с ними.
             </p>
-
-            <blockquote>
-                Сниппет для разрыва слов без пробелов:
-                <a href="https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/">https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/</a>
-            </blockquote>
             <div class="task">
                 <h3>Задание</h3>
                 <ol>
@@ -676,7 +682,9 @@ myFunction('тестовое сообщение');
                     <li>Скачать программу SourceTree &mdash; <a href="https://downloads.atlassian.com/software/sourcetree/windows/SourceTreeSetup_1.9.6.1.exe">https://downloads.atlassian.com/software/sourcetree/windows/SourceTreeSetup_1.9.6.1.exe</a> и установить её.</li>
                 </ol>
             </div>
-
+            <p>
+                Репозиторий <b>mobi</b> &mdash; <a href="https://github.com/alekskorovin/mobi/blob/master/index.html">https://github.com/alekskorovin/mobi/blob/master/index.html</a>
+            </p>
 
             <div class="task">
                 <h3>Домашнее задание</h3>
